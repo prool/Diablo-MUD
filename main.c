@@ -7,7 +7,7 @@ int main(void)
 {
 	server *s;
 
-	printf("Starting server.\n");
+	printf("Starting Diablo MUD server.\n");
 	global_exit=0;
 
 	s = server_new(4242);
