@@ -1,9 +1,13 @@
 #include <string.h>
+#include <stdio.h> // prool
+#include <stdlib.h> // prool
 #include "parse.h"
 #include "client.h"
 #include "buffer.h"
 #include "character.h"
 #include "table.h"
+
+extern int global_exit;
 
 static table *commands;
 
@@ -15,6 +19,43 @@ struct command {
 static void look(struct client *c)
 {
 	room_look(c);
+}
+
+void help (struct client *c) // prool
+{
+cprintf(c,"Commands:\n\
+Original:\n\
+look - look\n\
+whoami - who am i\n\
+Prool's command:\n\
+prool, prool2 - debug commands\n\
+shutdown - shutdown server\n\
+help - this help\n");
+}
+
+void prool (struct client *c) // prool
+{
+printf("prool пруль\n");
+cprintf(c, "prool пруль\n");
+}
+
+void prool2 (struct client *c) // prool
+{
+printf("prool2\n");
+cprintf(c, "prool2 UTF-8 пруль!\n");
+}
+
+void quit (struct client *c) // prool
+{
+printf("quit\n");
+cprintf(c, "no Quit!!!\n");
+}
+
+void shutdown (struct client *c) // prool
+{
+printf("shutdown\n");
+cprintf(c, "shutdown!!!\n");
+global_exit=1;
 }
 
 static void whoami(struct client *c)
@@ -31,6 +72,11 @@ static struct command command_list[] =
 {
 	{"whoami", 	whoami},
 	{"look", 	look},
+	{"prool",	prool},
+	{"quit",	quit},
+	{"shutdown",	shutdown},
+	{"help",	help},
+	{"пруль",	prool2},
 	{NULL,		NULL}
 };
 

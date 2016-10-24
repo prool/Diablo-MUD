@@ -11,6 +11,8 @@ struct server {
 	fd_set readfds;
 };
 
+int global_exit;
+
 server *server_new(int port)
 {
 	server *s;
@@ -72,6 +74,8 @@ int server_do(server *s)
 				
 		}
 	}
+
+if (global_exit) return 0;
 
 	return 1;
 }
