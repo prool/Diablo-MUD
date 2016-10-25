@@ -6,6 +6,7 @@
 #include "buffer.h"
 #include "character.h"
 #include "table.h"
+#include "socket.h"
 
 extern int global_exit;
 
@@ -35,8 +36,8 @@ help - this help\n");
 
 void prool (struct client *c) // prool
 {
-printf("prool пруль\n");
-cprintf(c, "prool пруль\n");
+cprintf(c, "prooltest 1 пруль\n");
+cprintf(c, "prooltest 2 пруль\n");
 }
 
 void prool2 (struct client *c) // prool
@@ -45,10 +46,14 @@ printf("prool2\n");
 cprintf(c, "prool2 UTF-8 пруль!\n");
 }
 
-void quit (struct client *c) // prool
+void quit (struct client *c) // prool fool!!!!!!!!!!!!!!!!!!!!
 {
 printf("quit\n");
-cprintf(c, "no Quit!!!\n");
+cprintf(c, "Quit!!!\n");
+//room_del_character(c->ch->r, c->ch, ROOM_LOGOUT);
+//character_free(c->ch);
+//socket_free(c->si);
+//client_destroy(c);
 }
 
 void shutdown (struct client *c) // prool
@@ -113,6 +118,6 @@ void parse_command(struct client *c)
 	{
 		func(c);
 	} else {
-		cprintf(c, "\r\nWhat?\r\n");
+		cprintf(c, "\r\nWhat the fuck?\r\n");
 	}
 }

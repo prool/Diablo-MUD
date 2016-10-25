@@ -3,6 +3,14 @@
 
 typedef struct client client;
 
+struct client {
+	struct buffer *buffer;
+	struct sockinfo *si;
+	struct character *ch;
+	int state;
+};
+
+
 #include <stdarg.h>
 
 int client_init(int s);

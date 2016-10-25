@@ -9,12 +9,14 @@
 #include "character.h"
 #include "parse.h"
 
+/*
 struct client {
 	struct buffer *buffer;
 	struct sockinfo *si;
 	struct character *ch;
 	int state;
 };
+*/
 
 static struct client **clients;
 static int maxfd;

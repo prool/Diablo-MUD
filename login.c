@@ -11,7 +11,7 @@ void login_client(client *c)
 
 void login_send_banner(client *c)
 {
-	const char msg[] = "Diablo MUD\r\n***\r\n";
+	const char msg[] = "Diablo MUD\r\nhttps://github.com/prool/Diablo-MUD\r\nUse help command for help\r\n";
 	int msg_len = sizeof(msg) - 1;
 
 	client_send(c, msg, msg_len); /* TODO: kill the client on an error */

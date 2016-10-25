@@ -6,11 +6,13 @@
 #include "character.h"
 #include "client.h"
 
+/*
 struct character {
 	char *username;
 	struct client *c;
 	room *r;
 };
+*/
 
 void character_prompt(character *ch)
 {

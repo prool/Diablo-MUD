@@ -1,9 +1,14 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
+#include "rooms.h"
 
 typedef struct character character;
+struct character {
+	char *username;
+	struct client *c;
+	room *r;
+};
 
-#include "rooms.h"
 
 character *character_init(client *);
 void character_set_username(character *, char const *username);
