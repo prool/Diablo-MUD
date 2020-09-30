@@ -118,6 +118,6 @@ void parse_command(struct client *c)
 	{
 		func(c);
 	} else {
-		cprintf(c, "\r\nWhat the fuck?\r\n");
+		cprintf(c, "\r\nInvalid command\r\n");
 	}
 }
